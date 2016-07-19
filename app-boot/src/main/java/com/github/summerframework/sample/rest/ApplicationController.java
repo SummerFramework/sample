@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by renan on 20/02/16.
  */
 @RestController
-@RequestMapping("/application")
+@RequestMapping("/api/application")
 public class ApplicationController extends PageableController<Application, ApplicationVO> {
 
     @Autowired

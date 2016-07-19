@@ -26,9 +26,9 @@ import java.util.Locale;
 
 @Configuration
 @EnableAutoConfiguration
-@EnableJpaRepositories(repositoryBaseClass = BaseJpaRepositoryImp.class, basePackages={"org.summerframework.*","com.myapp.*"})
-@ComponentScan(basePackages={"com.github.summerframework.*","com.myapp.*"})
-@EntityScan(basePackages = {"com.github.summerframework.*","com.myapp.*"})
+@EnableJpaRepositories(repositoryBaseClass = BaseJpaRepositoryImp.class, basePackages={"org.summerframework.*","com.github.summerframework.*"})
+@ComponentScan(basePackages={"com.github.summerframework.*","com.github.summerframework.*"})
+@EntityScan(basePackages =  {"com.github.summerframework.*","com.github.summerframework.*"})
 @EnableTransactionManagement
 public class AppConfiguration {
 

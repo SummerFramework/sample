@@ -1,9 +1,8 @@
 package com.github.summerframework.sample.rest;
 
+import com.github.summerframework.rest.BaseRestController;
 import com.github.summerframework.sample.model.User;
 import com.github.summerframework.sample.model.valueobject.UserVO;
-import com.github.summerframework.sample.rest.UserRepository;
-import com.github.summerframework.rest.BaseRestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping( "/user")
+@RequestMapping( "/api/user")
 public class UserRestController extends BaseRestController<User, UserVO> {
 
     @Autowired

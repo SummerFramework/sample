@@ -1,14 +1,7 @@
 apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
 apply plugin: 'maven'
 apply plugin: 'spring-boot'
 apply plugin: 'war'
-//apply plugin: 'maven-publish'
-
-group = "com.github.summerframework"
-archivesBaseName = "samples"
-version = '1.0.0'
 
 buildscript {
     repositories {
@@ -25,33 +18,28 @@ repositories {
     mavenLocal()
     mavenCentral()
     jcenter()
-    maven { url "https://repo.spring.io/libs-release" }
-    maven { url "http://repo.spring.io/release" }
-    maven { url "http://repo.spring.io/milestone" }
-    maven { url "http://repo.spring.io/snapshot" }
     maven { url "http://rbarbioni.com.br/artifactory/libs-snapshot-local" }
     maven { url "http://rbarbioni.com.br/artifactory/libs-release-local" }
-    maven { url "http://repository.jspresso.org/maven2" }
     maven { url "https://github.com/slorber/gcm-server-repository/raw/master/releases/" }
 }
 
-
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-//war {
-//    baseName = archivesBaseName
-//    version =  version
-//}
-
-configurations {
-    providedRuntime
-}
-
 springBoot {
-    mainClass = "AppApplication"
+    mainClass = "com.github.summerframework.sample.AppApplication"
 }
+
+
+group = "com.github.summerframework"
+archivesBaseName = "app-boot"
+version = '1.0.0'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+    maven { url "http://rbarbioni.com.br/artifactory/libs-snapshot-local" }
+    maven { url "http://rbarbioni.com.br/artifactory/libs-release-local" }
+}
+
 
 configurations.all {
     resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
@@ -59,24 +47,10 @@ configurations.all {
 }
 
 dependencies {
-
-    compile project(':rest')
-    compile "org.springframework.boot:spring-boot-starter-web"
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'com.github.summerframework:core:1.0.0-SNAPSHOT'
+    compile 'com.github.summerframework:rest:1.0.0-SNAPSHOT'
     compile 'javax.servlet:javax.servlet-api:3.1.0'
     compile 'org.apache.commons:commons-dbcp2:2.1'
     compile 'mysql:mysql-connector-java:5.1.36'
-}
-group 'com.github.summerframework'
-version '1.0.0-SNAPSHOT'
-
-apply plugin: 'java'
-
-sourceCompatibility = 1.5
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
 }
